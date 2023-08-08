@@ -18,6 +18,8 @@ if (process.env.NODE_ENV === 'production') {
   corsOption.origin = 'http://localhost:3001'
 }
 
+console.log(corsOption)
+
 app.use(cors(corsOption))
 
 const mongoose = require('mongoose');
