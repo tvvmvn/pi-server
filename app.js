@@ -24,8 +24,8 @@ const mongoose = require('mongoose');
 
 /*
 The *process* core module of Node.js provides the env property 
-which hosts all the environment variables that were set at the moment 
-the process was started.
+which hosts all the environment variables that were set 
+at the moment the process was started.
 */
 console.log(process.env.NODE_ENV)
 
@@ -53,3 +53,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 module.exports = app;
+
+
+/* 
+'https://tvvmvn.github.io/pi-client' that is not equal to the supplied origin. 
+Have the server send the header with a valid value, 
+or, if an opaque response serves your needs, 
+set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+*/
