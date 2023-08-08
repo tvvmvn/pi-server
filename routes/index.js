@@ -6,9 +6,7 @@ var router = express.Router();
 router.get('/', async (req, res, next) => {
   const cats = await Cat.find();
 
-  console.log(cats)
-
-  res.json({ cats, env: process.env.NODE_ENV });
+  res.json({ cats });
 });
 
 module.exports = router;

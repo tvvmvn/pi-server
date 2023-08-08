@@ -14,27 +14,30 @@ require('dotenv').config()
 //   origin: 'http://localhost:3001'
 // }
 var corsOption = {}
-
 app.use(cors(corsOption))
 
-// getting-started.js
 const mongoose = require('mongoose');
-const mongoURI = 'mongodb+srv://tvvmvn:H8NiU8pVY2XRRy1m@cluster0.eho7r.mongodb.net/test?retryWrites=true&w=majority'
-const dev_db_url = 'mongodb://localhost:27017/test'
+
 /*
 The *process* core module of Node.js provides the env property 
 which hosts all the environment variables that were set at the moment 
 the process was started.
 */
-
 console.log(process.env.NODE_ENV)
 
 async function main() {
-  await mongoose.connect(mongoURI);
+  let MONGODB_URI;
+
+  if (process.env.NODE_ENV === 'production') {
+    MONGODB_URI = process.env.MONGODB_URI
+  } else {
+    MONGODB_URI = 'mongodb://localhost:27017/test'
+  }
+
+  await mongoose.connect(MONGODB_URI);
 }
 
 main().catch(err => console.log(err));
-
 
 app.use(logger('dev'));
 app.use(express.json());
