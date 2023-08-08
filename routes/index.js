@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
 
   console.log(cats)
 
-  res.json({ cats });
+  res.json({ cats, env: process.env.NODE_ENV });
 });
 
 module.exports = router;
