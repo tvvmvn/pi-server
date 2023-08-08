@@ -10,7 +10,9 @@ var app = express();
 var cors = require('cors')
 require('dotenv').config()
 
-var corsOption = {};
+var corsOption = {
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+};
 
 if (process.env.NODE_ENV === 'production') {
   corsOption.origin = 'https://tvvmvn.github.io/pi-client/'
