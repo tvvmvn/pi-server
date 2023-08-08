@@ -13,7 +13,7 @@ require('dotenv').config()
 var corsOption = {};
 
 if (process.env.NODE_ENV === 'production') {
-  corsOption.origin = 'https://tvvmvn.github.io/pi-client'
+  corsOption.origin = 'https://tvvmvn.github.io/pi-client/'
 } else {
   corsOption.origin = 'http://localhost:3001'
 }
