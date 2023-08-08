@@ -10,10 +10,14 @@ var app = express();
 var cors = require('cors')
 require('dotenv').config()
 
-// var corsOption = {
-//   origin: 'http://localhost:3001'
-// }
-var corsOption = {}
+var corsOption = {};
+
+if (process.env.NODE_ENV === 'production') {
+  corsOption.origin = 'https://tvvmvn.github.io/pi-client'
+} else {
+  corsOption.origin = 'http://localhost:3001'
+}
+
 app.use(cors(corsOption))
 
 const mongoose = require('mongoose');
