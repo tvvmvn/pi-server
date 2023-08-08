@@ -1,9 +1,14 @@
+var Cat = require('../models/Cat');
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.json({ message: 'hello express again and again!' });
+router.get('/', async (req, res, next) => {
+  const cats = await Cat.find();
+
+  console.log(cats)
+
+  res.json({ cats });
 });
 
 module.exports = router;

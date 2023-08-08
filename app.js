@@ -13,7 +13,17 @@ var cors = require('cors')
 //   origin: 'http://localhost:3001'
 // }
 var corsOption = {}
+
 app.use(cors(corsOption))
+
+// getting-started.js
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb+srv://tvvmvn:H8NiU8pVY2XRRy1m@cluster0.eho7r.mongodb.net/test?retryWrites=true&w=majority');
+}
 
 app.use(logger('dev'));
 app.use(express.json());
