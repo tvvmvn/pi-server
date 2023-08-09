@@ -10,12 +10,10 @@ var app = express();
 var cors = require('cors')
 require('dotenv').config()
 
-var corsOption = {
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
+var corsOption = {};
 
 if (process.env.NODE_ENV === 'production') {
-  corsOption.origin = 'https://tvvmvn.github.io/pi-client/'
+  corsOption.origin = 'https://tvvmvn.github.io'
 } else {
   corsOption.origin = 'http://localhost:3001'
 }
@@ -60,8 +58,15 @@ module.exports = app;
 
 
 /* 
-'https://tvvmvn.github.io/pi-client' that is not equal to the supplied origin. 
-Have the server send the header with a valid value, 
-or, if an opaque response serves your needs, 
-set the request's mode to 'no-cors' to fetch the resource with CORS disabled.
+Access to fetch at 'https://3615-220-85-226-110.ngrok-free.app/' 
+from origin 'https://tvvmvn.github.io' has been blocked by CORS policy: 
+
+Response to preflight request doesn't pass access control check: 
+The 'Access-Control-Allow-Origin' header has a value 
+
+'https://tvvmvn.github.io/pi-client/' that is not equal to the supplied origin. 
+
+Have the server send the header with a valid value, or, 
+if an opaque response serves your needs, set the request's mode to 'no-cors' 
+to fetch the resource with CORS disabled.
 */
